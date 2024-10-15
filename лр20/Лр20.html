@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Примеры Анимации</title>
+    <style>
+      /* Пример 1: CSS-анимация с классами */
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(173, 230, 179);
+        position: absolute;
+        -webkit-transform: translate(0, 0);
+        -webkit-transition: -webkit-transform 1000ms;
+        transform: translate(0, 0);
+        transition: transform 1000ms;
+        margin-left: 0px;
+        margin-top: 30px;
+        text-align: center;
+      }
+
+      .box.move {
+        -webkit-transform: translate(50px, 50px);
+        transform: translate(50px, 50px);
+      }
+
+      /* Пример 2: CSS-анимация с @keyframes */
+      .box-keyframes {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(148, 201, 148);
+        position: absolute;
+        animation-name: movingBox;
+        animation-duration: 2300ms;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        margin: 200px;
+        text-align: center;
+      }
+
+      @keyframes movingBox {
+        0% {
+          transform: translate(0, 0);
+          opacity: 0.4;
+        }
+        25% {
+          opacity: 0.9;
+        }
+        50% {
+          transform: translate(150px, 200px);
+          opacity: 0.2;
+        }
+        100% {
+          transform: translate(40px, 30px);
+          opacity: 0.8;
+        }
+      }
+
+      /* Пример 3: JS-анимация */
+      .box-js {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(110, 150, 108);
+        position: absolute;
+        margin-left: 200px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      /* Пример 4: Плавность анимации */
+      .box-smooth {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(125, 163, 124);
+        position: absolute;
+        -webkit-transform: translate(0, 0);
+        -webkit-transition: -webkit-transform 1000ms ease-in-out;
+        transform: translate(0, 0);
+        transition: transform 1000ms ease-in-out;
+        margin-left: 400px;
+        margin-top: 10px;
+        text-align: center;
+      }
+
+      .box-smooth.move {
+        -webkit-transform: translate(150px, 150px);
+        transform: translate(150px, 150px);
+        text-align: center;
+      }
+
+      button {
+        background-color: aquamarine;
+        border-color: azure;
+        height: 20px;
+        border-radius: 9px 9px 9px 9px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Примеры анимации</h1>
+
+    <!-- Пример 1: CSS-анимация с классами -->
+    <div class="box">CSS Анимация</div>
+    <button onclick="startAnimation()">Запустить CSS анимацию</button>
+
+    <!-- Пример 2: CSS-анимация с @keyframes -->
+    <div class="box-keyframes">CSS анимация с keyframes</div>
+
+    <!-- Пример 3: JS-анимация -->
+    <div class="box-js">JS анимация</div>
+    <button onclick="startJSAnimation()">Запустить JS анимацию</button>
+
+    <!-- Пример 4: Плавность анимации -->
+    <div class="box-smooth">Плавная анимация</div>
+    <button onclick="startSmoothAnimation()">Запустить плавную анимацию</button>
+
+    <script>
+      // Пример 1: CSS-анимация с классами
+      function startAnimation() {
+        var boxElements = document.getElementsByClassName("box");
+        for (var i = 0; i < boxElements.length; i++) {
+          boxElements[i].classList.add("move");
+        }
+      }
+
+      // Пример 3: JS-анимация
+      function startJSAnimation() {
+        var boxElement = document.querySelector(".box-js");
+        var animation = boxElement.animate(
+          [
+            { transform: "translate(0)" },
+            { transform: "translate(150px, 200px)" },
+          ],
+          500
+        );
+
+        animation.addEventListener("finish", function () {
+          boxElement.style.transform = "translate(150px, 200px)";
+        });
+      }
+
+      // Пример 4: Плавность анимации
+      function startSmoothAnimation() {
+        var boxElement = document.querySelector(".box-smooth");
+        boxElement.classList.add("move");
+      }
+    </script>
+  </body>
+</html>
