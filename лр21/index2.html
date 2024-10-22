@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <script>
+      var s = 0;
+
+      function move() {
+        var leftSelect = f.left;
+        if (s != 3) {
+          var a = f.left.value;
+          f.right.options[s].text = a;
+          s = s + 1;
+          f.left.options[f.left.selectedIndex].text = "";
+        } else {
+          alert("Максимум три предмета");
+        }
+      }
+      function del() {
+        let rightSelect = f.right;
+        let a = rightSelect.options[s - 1].text;
+
+        rightSelect.remove(s - 1);
+        s--;
+
+        for (let i = 0; i < f.left.options.length; i++) {
+          if (f.left.options[i].text === "") {
+            f.left.options[i].text = a;
+            break;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form name="f">
+      <table border="1">
+        <tr>
+          <td>
+            <select name="left" size="6">
+              <option value="Литература" selected>Литература</option>
+              <option value="Математика">Математика</option>
+              <option value="Геометрия">Геометрия</option>
+              <option value="Физика">Физика</option>
+              <option value="Физкультура">Физкультура</option>
+              <option value="История">История</option>
+            </select>
+          </td>
+          <td>
+            <input type="button" value="move->" OnClick="move()" /><br /><br />
+            <input type="button" value=" delete " OnClick="del()" />
+          </td>
+          <td>
+            <select name="right" size="6" style="width: 123">
+              <option value="v1"></option>
+              <option value="v2"></option>
+              <option value="v3"></option>
+              <option value="v4"></option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
