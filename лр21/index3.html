@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Разделы студенческой газеты</title>
+    <script>
+        function updateSelectedSections() {
+            var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+            var selectedSections = [];
+            for (var i = 0; i < checkboxes.length; i++) {
+                selectedSections.push(checkboxes[i].value);
+            }
+            document.getElementById('selectedSections').value = selectedSections.join(', ');
+        }
+    </script>
+</head>
+<body>
+    <h3>Выберите разделы студенческой газеты:</h3>
+    <form>
+        <input type="checkbox" id="news" value="Новости" onchange="updateSelectedSections()"> Новости<br>
+        <input type="checkbox" id="guests" value="Гости" onchange="updateSelectedSections()"> Гости<br>
+        <input type="checkbox" id="awards" value="Награждения" onchange="updateSelectedSections()"> Награждения<br>
+        <input type="checkbox" id="education" value="Образование" onchange="updateSelectedSections()"> Образование<br>
+        <input type="checkbox" id="leisure" value="Досуг" onchange="updateSelectedSections()"> Досуг<br>
+        <input type="checkbox" id="entertainment" value="Развлечения" onchange="updateSelectedSections()"> Развлечения<br>
+        <input type="checkbox" id="career" value="Карьера" onchange="updateSelectedSections()"> Карьера<br><br>
+        <label for="selectedSections">Выбранные разделы:</label><br>
+        <textarea id="selectedSections" rows="4" cols="40" readonly></textarea>
+    </form>
+</body>
+</html>
