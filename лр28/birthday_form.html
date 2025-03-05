@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Выбор даты рождения</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 200px;
+        margin-top: 5px;
+      }
+
+      button {
+        background-color: #5cb85c;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 5px;
+        font-size: 16px;
+      }
+
+      #reset {
+        background-color: #d9534f;
+      }
+
+      button:hover {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="process_birthday.php" method="POST">
+      <label
+        >Дата рождения:
+        <input type="date" name="birthday" min="1900-01-01" required />
+      </label>
+      <button type="submit">Сохранить</button>
+      <button type="submit" name="reset" id="reset">Сбросить</button>
+    </form>
+  </body>
+</html>
