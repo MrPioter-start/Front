@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Проверка счастливого билета</title>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .form-group {
+        margin-bottom: 10px;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Проверка счастливого билета</h2>
+
+    <form method="post" action="/task2.php">
+      <div class="form-group">
+        <label for="numbers">Введите 6 цифр (через запятую):</label>
+        <input type="text" name="numbers" id="numbers" required />
+        <small>Пример: 1,2,3,4,5,6</small>
+      </div>
+
+      <button type="submit">Проверить</button>
+    </form>
+  </body>
+</html>

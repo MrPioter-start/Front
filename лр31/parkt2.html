@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Перемещение цвета между кругами</title>
+        <style>
+            .circle {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: gray;
+                display: inline-block;
+                margin: 10px;
+            }
+            .active {
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="circle active"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <button id="nextBtn">следующий</button>
+
+        <script>
+            document
+                .getElementById("nextBtn")
+                .addEventListener("click", function () {
+                    const circles = document.querySelectorAll(".circle");
+                    const currentActive =
+                        document.querySelector(".circle.active");
+                    const currentIndex =
+                        Array.from(circles).indexOf(currentActive);
+                    currentActive.classList.remove("active");
+                    const nextIndex = (currentIndex + 1) % circles.length;
+                    circles[nextIndex].classList.add("active");
+                });
+        </script>
+    </body>
+</html>

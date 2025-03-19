@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Генерация случайных магических квадратов</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        table.magic-square {
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table.magic-square td {
+            border: 1px solid #333;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        .magic-sum {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Генерация случайных магических квадратов</h2>
+    
+    <form method="post" action="/task4.php">
+        <div class="form-group">
+            <label for="size">Размер магического квадрата:</label>
+            <select name="size" id="size">
+                <option value="3" <?= isset($_POST['size']) && $_POST['size'] == 3 ? 'selected' : '' ?>>3×3</option>
+                <option value="5" <?= isset($_POST['size']) && $_POST['size'] == 5 ? 'selected' : '' ?>>5×5</option>
+                <option value="7" <?= isset($_POST['size']) && $_POST['size'] == 7 ? 'selected' : '' ?>>7×7</option>
+                <option value="9" <?= isset($_POST['size']) && $_POST['size'] == 9 ? 'selected' : '' ?>>9×9</option>
+                <option value="11" <?= isset($_POST['size']) && $_POST['size'] == 11 ? 'selected' : '' ?>>11×11</option>
+            </select>
+            <small>(Поддерживаются нечетные размеры)</small>
+        </div>
+        
+        <button type="submit">Сгенерировать</button>
+    </form>
+    
+
+</body>
+</html>

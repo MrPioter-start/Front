@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Разложение числа на простые множители</title>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .form-group {
+        margin-bottom: 10px;
+      }
+      .result {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+      }
+      .factorization-steps {
+        font-family: monospace;
+        white-space: pre;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Разложение числа на простые множители</h2>
+
+    <form method="post" action="/task3.php">
+      <div class="form-group">
+        <label for="number">Введите число:</label>
+        <input
+          type="number"
+          name="number"
+          id="number"
+          min="2"
+          required
+          value="<?= isset($_POST['number']) ? htmlspecialchars($_POST['number']) : '' ?>"
+        />
+      </div>
+
+      <button type="submit">Разложить</button>
+    </form>
+  </body>
+</html>
